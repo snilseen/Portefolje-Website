@@ -1,3 +1,101 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-size: 62.5%;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  font-size: 16px; /* px fallback */
+  font-size: 1.6rem; /* default font-size for document */
+  line-height: 1.5; /* a nice line-height */
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,84 +111,205 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 #app {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding-top: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+/*  NAVBAR STYLING */
+#navbar {
+  height: 30vh;
 }
 
-.card {
-  padding: 2em;
+#navbar ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
 }
 
-.read-the-docs {
-  color: #888;
+#navbar li {
+  margin-right: 25px; /* Mellomrom mellom elementene */
+}
+#navbar li.left {
+  margin-right: auto;
+  margin-left: -39px;
+  font-size: 2rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* ABOUT STYLING */
+
+#about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 30vh;
+  margin: 20px;
+}
+
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#about p {
+  margin-top: 30px;
+}
+
+#tech-stack {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  align-items: center;
+}
+
+#tech-stack h2 {
+  align-items: center;
+  margin-top: 30px;
+}
+
+#tech-stack-wrapper {
+  margin-top: 30px;
+}
+
+/* EXPERIENCE STYLING */
+#experience {
+  margin: 20px;
+  height: 20vh;
+}
+ion-icon {
+  font-size: 64px;
+}
+
+/* Project STYLING */
+
+#projects-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 20px;
+}
+
+.project-container {
+  padding: 20px;
+  max-width: 370px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.project-container ul {
+  display: flex;
+  list-style: none;
+}
+
+.project-container li {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+/* Contact Form Styles */
+h1 {
+  margin: 0 0 20px 0;
+}
+h4 {
+  margin: 0 0 20px 0;
+}
+#contact-form {
+  background-color: rgba(72, 72, 72, 0.9);
+  padding: 10px 20px 30px 20px;
+  max-width: 100%;
+  float: left;
+  left: 50%;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: -260px;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+}
+#contact-form input,
+#contact-form textarea,
+#contact-form label {
+  font-size: 15px;
+  margin-bottom: 2px;
+  font-family: Arial, san-serif;
+}
+#contact-form input,
+#contact-form select,
+#contact-form textarea {
+  width: 100%;
+  background: #fff;
+  border: 0;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin-bottom: 25px;
+  padding: 5px;
+}
+#contact-form input:focus,
+#contact-form select:focus,
+#contact-form textarea:focus {
+  background-color: #e5e6e7;
+}
+#contact-form textarea {
+  width: 100%;
+  height: 150px;
+}
+#contact-form button[type="submit"] {
   cursor: pointer;
-  transition: border-color 0.25s;
+  width: 100%;
+  border: none;
+  background: #991d57;
+  background-image: linear-gradient(bottom, #8c1c50 0%, #991d57 52%);
+  background-image: -moz-linear-gradient(bottom, #8c1c50 0%, #991d57 52%);
+  background-image: -webkit-linear-gradient(bottom, #8c1c50 0%, #991d57 52%);
+  color: #fff;
+  margin: 0 0 5px;
+  padding: 10px;
+  border-radius: 5px;
 }
-button:hover {
-  border-color: #646cff;
+#contact-form button[type="submit"]:hover {
+  background-image: linear-gradient(bottom, #9c215a 0%, #a82767 52%);
+  background-image: -moz-linear-gradient(bottom, #9c215a 0%, #a82767 52%);
+  background-image: -webkit-linear-gradient(bottom, #9c215a 0%, #a82767 52%);
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+#contact-form button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+input:required,
+textarea:required {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+}
+#contact-form .required {
+  font-weight: bold;
+  color: #e5e6e7;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+/* Hide success/failure message
+  (especially since the php is missing) */
+#failure,
+#success {
+  color: #6ea070;
+  display: none;
+}
+
+/* Make form look nice on smaller screens */
+@media only screen and (max-width: 580px) {
+  #contact-form {
+    left: 3%;
+    margin-right: 3%;
+    width: 88%;
+    margin-left: 0;
+    padding-left: 3%;
+    padding-right: 3%;
   }
 }

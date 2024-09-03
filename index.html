@@ -15,56 +15,130 @@
   <body>
     <div id="app">
       <header>
-        <nav>
-          <ul id="navbar">
-            <li>Sander Nilsen</li>
-            <li>About</li>
-            <li>Experience</li>
-            <li>Projects</li>
-            <li>Contact</li>
-            <li>Github</li>
-            <li>CV</li>
+        <nav id="navbar">
+          <ul>
+            <li class="left">Sander Nilsen</li>
+            <li href="#">About</li>
+            <li href="#">Experience</li>
+            <li href="#">Projects</li>
+            <li href="#">Contact</li>
+            <li href="#">Github</li>
+            <li href="#">CV</li>
           </ul>
         </nav>
       </header>
       <main>
         <section id="about-wrapper">
-          <section id="about">
+          <article id="about">
             <h2>About</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
               assumenda natus aut ipsa iste quibusdam maiores dicta, accusantium
               eum tempora enim laborum. Officiis, itaque autem dicta eveniet vel
-              inventore delectus.
+              inventore delectus. Itaque autem dicta eveniet vel inventore
+              delectus. Itaque autem dicta eveniet vel inventore delectus.
             </p>
-          </section>
-          <section id="tech-stack"></section>
-        </section>
-        <article id="experience">
-          <h2>Experience</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-            architecto, nemo iste natus mollitia illum expedita impedit,
-            voluptas beatae debitis explicabo, ipsam ex autem! Quibusdam porro
-            esse cum veniam suscipit. Laborum quam illum nisi sed perferendis et
-            sequi sunt voluptates.
-          </p>
-        </article>
+          </article>
+          <section id="tech-stack">
+            <div>
+              <h2>Tech Stack</h2>
 
-        <section id="experience-wrapper">
-          <div id="projects"></div>
+              <div id="tech-stack-wrapper">
+                <ion-icon name="logo-javascript"></ion-icon>
+                <ion-icon name="logo-python"></ion-icon>
+                <ion-icon name="logo-nodejs"></ion-icon>
+                <ion-icon name="logo-css3"></ion-icon>
+                <ion-icon name="logo-react"></ion-icon>
+              </div>
+            </div>
+          </section>
         </section>
-        <form
-          action="
-        "
-        >
-          <label for="name" placeholder="Write your name here..">Name</label>
-          <label for="email" placeholder="Write your email here..">Email</label>
-          <input type="text" />
-          <button class="submitForm"></button>
-        </form>
+        <section id="experience-wrapper">
+          <article id="experience">
+            <h2>Experience</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+              architecto, nemo iste natus mollitia illum expedita impedit,
+              voluptas beatae debitis explicabo, ipsam ex autem! Quibusdam porro
+              esse cum veniam suscipit. Laborum quam illum nisi sed perferendis
+              et sequi sunt voluptates.
+            </p>
+          </article>
+        </section>
+
+        <section id="projects-wrapper"></section>
+
+        <div id="contact-form">
+          <div>
+            <h1>Upload your projects here</h1>
+          </div>
+          <p id="failure">
+            Dang it... your project was not uploaded successfully.
+          </p>
+          <p id="success">Your project was uploaded successfullyu!</p>
+
+          <form method="post" action="/">
+            <div>
+              <label for="name">
+                <span class="required">Project Name</span>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value=""
+                  placeholder="Project 1"
+                  required="required"
+                  tabindex="1"
+                  autofocus="autofocus"
+                />
+              </label>
+            </div>
+            <div>
+              <label for="tech-used">
+                <span class="required">Tech Used</span>
+                <input
+                  type="tech-used"
+                  id="tech-used"
+                  name="tech-used"
+                  value=""
+                  placeholder="Your techstack"
+                  tabindex="2"
+                  required="required"
+                />
+              </label>
+            </div>
+            <div>
+              <span>Link to Project</span>
+              <input id="subject" name="subject" />
+            </div>
+            <div>
+              <label for="description">
+                <span class="required">Description</span>
+                <textarea
+                  id="description"
+                  name="description"
+                  placeholder="Please write your project description here."
+                  tabindex="5"
+                  required="required"
+                ></textarea>
+              </label>
+            </div>
+            <div>
+              <button name="submit" type="submit" id="submit">SEND</button>
+            </div>
+          </form>
+        </div>
       </main>
     </div>
     <script type="module" src="src/main.ts"></script>
+    <script defer type="module" src="./src/load.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

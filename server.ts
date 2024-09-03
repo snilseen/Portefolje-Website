@@ -12,37 +12,59 @@ const app = new Hono();
 app.use("/*", cors());
 
 // Setter opp statisk filbetjening for filer i "static" mappen
-app.use("/static/*", serveStatic({ root: "./" }));
+app.use("/*", serveStatic({ root: "./" }));
 
-// Initialiserer en liste med vaner (habits)
-const habits = [
+// Initialiserer en liste med prosjekter
+const projects = [
   {
     id: crypto.randomUUID(),
-    title: "Game",
-    createdAt: new Date("2024-01-01"),
+    title: "Prosjekt 1",
+    "tech-used": ["React", "Typescript", "Hono", "Tailwind"],
+    description: "description av prosjekter kan skrives her",
+    link: "link til repository eller prosjektet",
+  },
+  {
+    id: crypto.randomUUID(),
+    title: "Prosjekt 2",
+    "tech-used": ["React", "Typescript", "Hono", "Tailwind"],
+    description: "description av prosjekter kan skrives her",
+    link: "link til repository eller prosjektet",
+  },
+  {
+    id: crypto.randomUUID(),
+    title: "Prosjekt 3",
+    "tech-used": ["React", "Typescript", "Hono", "Tailwind"],
+    description: "description av prosjekter kan skrives her",
+    link: "link til repository eller prosjektet",
   },
 ];
 
 app.get("/json", async (c) => {
-  const data = await fs.readFile("./static/data.json", "utf8");
+  const data = await fs.readFile("data.json", "utf8");
   const dataAsJson = JSON.parse(data);
   return c.json(dataAsJson);
 });
 
-// Definerer en POST-rute for å legge til nye vaner
+// Definerer POST-ruten for å legge til nye prosjekter
 app.post("/add", async (c) => {
-  const newHabit = await c.req.json();
-  console.log(newHabit);
-  // Legger til den nye vanen i listen med en unik ID og tidsstempel
-  habits.push({ id: crypto.randomUUID(), createdAt: new Date(), ...newHabit });
-
-  // Returnerer den oppdaterte listen med vaner og en 201 (Created) statuskode
-  return c.json(habits, { status: 201 });
+  const newProject = await c.req.json(); // Henter prosjektdata fra forespørselen
+  projects.push(newProject); // Legger til prosjektet i listen
+  return c.json(newProject, 201); // Returnerer det nye prosjektet med status 201 Created
 });
 
-// Definerer en GET-rute for å hente alle vaner
+// Definerer en POST-rute for å lagre nye prosjekter
+
+/*
+app.post("/add", async (c) => {
+  const newProject = await c.req.json();
+  projects.push(newProject);
+  return c.json({ message: "Prosjekt lagt til!", project: newProject });
+});
+*/
+// Definerer en GET-rute for å hente alle prosjekter
+
 app.get("/", (c) => {
-  return c.json(habits);
+  return c.json(projects);
 });
 
 // Definerer porten serveren skal lytte på

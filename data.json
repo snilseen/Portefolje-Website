@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Prosjekt 1",
+    "tech-used": ["React", "Typescript", "Hono", "Tailwind"],
+    "description": "description av prosjekter kan skrives her",
+    "link": "link til repository eller prosjektet"
+  },
+  {
+    "title": "Prosjekt 2",
+    "tech-used": ["React", "Typescript", "Hono", "Tailwind"],
+    "description": "description av prosjekter kan skrives her",
+    "link": "link til repository eller prosjektet"
+  },
+  {
+    "title": "Prosjekt 3",
+    "tech-used": ["React", "Typescript", "Hono", "Tailwind"],
+    "description": "description av prosjekter kan skrives her",
+    "link": "link til repository eller prosjektet"
+  }
+]
