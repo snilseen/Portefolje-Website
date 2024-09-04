@@ -3,14 +3,14 @@ const form = document.getElementById("contact-form");
 const projectsList = document.getElementById("projects-wrapper");
 const projects = []; // Intern liste med prosjekter
 
-// Legger til en lytter som fanger opp sending av skjema
+// Legger til en eventlistener som fanger opp sending av skjema
 form.addEventListener("submit", async (event) => {
   event.preventDefault(); // Forhindrer standard oppførsel ved sending av skjema
 
   // Oppretter et nytt prosjektobjekt basert på brukerens input
   const newProject = {
     title: event.target.elements.name.value,
-    "tech-used": event.target.elements["tech-used"].value.split(","), // Splitt på komma for å få en array av tech-stacken
+    "tech-used": event.target.elements["tech-used"].value.split(","),
     link: event.target.elements.subject.value,
     description: event.target.elements.description.value,
     createdAt: new Date(),
@@ -46,10 +46,10 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
-// Funksjon for å oppdatere visningen av prosjekter på nettsiden
+// Funksjon for å oppdatere visninger av prosjekter på nettsiden
 function updateProjectsList() {
   console.log(projects);
-  projectsList.innerHTML = ""; // Tømmer listen før ny oppdatering
+  projectsList.innerHTML = "";
 
   // Legger til hvert prosjekt som et listeelement
   for (const project of projects) {
@@ -86,7 +86,7 @@ function loadFromApi() {
   fetch("http://localhost:3999")
     .then((response) => response.json())
     .then((data) => {
-      projects.push(...data); // Legger til prosjekter fra API-et i den interne listen
+      projects.push(...data);
       updateProjectsList(); // Oppdaterer visningen på nettsiden
     })
     .catch((error) => {

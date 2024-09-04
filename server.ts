@@ -52,15 +52,6 @@ app.post("/add", async (c) => {
   return c.json(newProject, 201); // Returnerer det nye prosjektet med status 201 Created
 });
 
-// Definerer en POST-rute for å lagre nye prosjekter
-
-/*
-app.post("/add", async (c) => {
-  const newProject = await c.req.json();
-  projects.push(newProject);
-  return c.json({ message: "Prosjekt lagt til!", project: newProject });
-});
-*/
 // Definerer en GET-rute for å hente alle prosjekter
 
 app.get("/", (c) => {
